@@ -6,7 +6,7 @@ export async function fetchTickerData(ticker) {
   }
 
   const res = await fetch(
-    `https://testext.netlify.app/api/getSite?ticker=${ticker}`,
+    `https://getstockdata.netlify.app/api/getSite?ticker=${ticker}`,
     {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -14,7 +14,6 @@ export async function fetchTickerData(ticker) {
     }
   );
   if (!res.ok) {
-    console.log(res);
     throw new Error("ticker not found");
   }
   const data = await res.json();

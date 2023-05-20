@@ -1,10 +1,13 @@
 chrome.runtime.onInstalled.addListener((details) => {
   chrome.storage.local.set({ ticker: "", tickerData: {} });
   chrome.contextMenus.create({
-    title: "Price Target",
-    id: "search",
+    title: "View Stock on Tip Ranks",
+    id: "priceTarget",
     contexts: ["page"],
-    documentUrlPatterns: ["https://stockcharts.com/*"],
+    documentUrlPatterns: [
+      "https://stockcharts.com/*",
+      "https://finance.yahoo.com/*",
+    ],
   });
 });
 

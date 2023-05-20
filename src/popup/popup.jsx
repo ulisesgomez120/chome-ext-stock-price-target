@@ -3,7 +3,9 @@ import ReactDom from "react-dom";
 import "./popup.css";
 import { TickerData } from "./TickerData";
 import { fetchTickerData } from "../utils/getSiteData";
-
+const sendMessage = () => {
+  chrome.runtime.sendMessage(null, "See More");
+};
 const App = () => {
   const [state, setState] = useState({
     ticker: "",
@@ -112,11 +114,18 @@ const App = () => {
     }
   }
   return (
-    <TickerData
-      ticker={state.ticker}
-      tickerData={state.tickerData}
-      isLoading={state.isLoading}
-    />
+    <>
+      <TickerData
+        ticker={state.ticker}
+        tickerData={state.tickerData}
+        isLoading={state.isLoading}
+      />
+      <footer>
+        <button className='tipranks-nav' onClick={sendMessage}>
+          See more on Tip Ranks&trade;
+        </button>
+      </footer>
+    </>
   );
 };
 

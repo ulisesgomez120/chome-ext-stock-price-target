@@ -1,10 +1,6 @@
 import React from "react";
 import "./popup.css";
 
-const sendMessage = () => {
-  chrome.runtime.sendMessage(null, "See More");
-};
-
 export const TickerData = ({ ticker, tickerData, isLoading }) => {
   return isLoading ? (
     <>
@@ -63,11 +59,6 @@ export const TickerData = ({ ticker, tickerData, isLoading }) => {
           <h3>{tickerData?.ratings?.total} Ratings</h3>
         </section>
       </main>
-      <footer>
-        <button className='tipranks-nav' onClick={sendMessage}>
-          See more on tipranks
-        </button>
-      </footer>
     </>
   );
 };
